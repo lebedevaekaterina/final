@@ -1,0 +1,415 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Страница с заданиями Лебедевой Екатерины">
+    <title>ЗАДАНИЯ | Лебедева Екатерина</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+        }
+        
+        body {
+            background-color: #e9e9e9; /* Новый цвет фона страницы */
+            color: #333;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+            line-height: 1.6;
+        }
+        
+        .container {
+            max-width: 700px;
+            width: 100%;
+            text-align: center;
+            padding: 40px 20px;
+            background-color: #ffffff;
+            border-radius: 12px;
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+            display: flex;
+            flex-direction: column;
+            min-height: 70vh;
+        }
+        
+        .main-title {
+            font-size: 2.2rem;
+            font-weight: 700;
+            margin-bottom: 10px;
+            color: #2c3e50;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+        }
+        
+        .subtitle {
+            font-size: 1.2rem;
+            color: #5a5a5a; /* Более темный серый для лучшей читаемости */
+            margin-bottom: 3px;
+        }
+        
+        .name {
+            font-weight: 700;
+            color: #2c3e50;
+        }
+        
+        .group {
+            font-weight: 400;
+            margin-bottom: 3px;
+        }
+        
+        .year {
+            font-size: 1.2rem;
+            color: #5a5a5a; /* Более темный серый */
+            margin-bottom: 30px;
+            font-weight: 400;
+        }
+        
+        .buttons-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 15px;
+            margin-top: 20px;
+            margin-bottom: 20px;
+            flex: 1;
+        }
+        
+        .task-button {
+            padding: 16px 24px;
+            text-decoration: none;
+            border-radius: 8px;
+            font-size: 1.1rem;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+            min-width: 140px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.15);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            border: 1px solid rgba(0, 0, 0, 0.1);
+        }
+        
+        .task-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+        }
+        
+        .task-button:active {
+            transform: translateY(0);
+        }
+        
+        /* Первые три кнопки: E23C50 (красный) */
+        .task-button.primary {
+            background-color: #E23C50;
+            color: white; /* Белый текст на красном фоне */
+            border-color: rgba(255, 255, 255, 0.2); /* Светлая граница */
+        }
+        
+        .task-button.primary:hover {
+            background-color: #d12a3e; /* Темнее при наведении */
+            color: white;
+        }
+        
+        /* Четвертая кнопка: 551001 (темно-бордовый) */
+        .task-button.special {
+            background-color: #551001;
+            border: 1px solid #440c01; /* Еще темнее граница */
+            box-shadow: 0 4px 6px rgba(85, 16, 1, 0.3);
+            font-weight: 600;
+            color: white; /* Белый текст на темном фоне */
+        }
+        
+        .task-button.special:hover {
+            background-color: #440c01;
+            box-shadow: 0 6px 12px rgba(85, 16, 1, 0.4);
+            color: white;
+        }
+        
+        .button-main-text {
+            font-size: 1.1rem;
+            margin-bottom: 5px;
+            font-weight: 600;
+        }
+        
+        .button-sub-text {
+            font-size: 0.85rem;
+            opacity: 0.9;
+            font-weight: 400;
+        }
+        
+        .title-line {
+            height: 2px;
+            width: 60px;
+            background-color: #E23C50; /* Красный цвет для акцента */
+            margin: 20px auto 25px;
+            border-radius: 2px;
+        }
+        
+        .first-tasks-container {
+            margin-bottom: 25px;
+        }
+        
+        /* Контейнер для кнопки задания 3 и ссылки readme */
+        .task3-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            position: relative;
+        }
+        
+        .readme-link-container {
+            margin-top: 8px;
+            width: 100%;
+            max-width: 180px;
+        }
+        
+        .readme-link {
+            display: inline-block;
+            padding: 6px 12px;
+            background-color: #f8f9fa;
+            border-radius: 6px;
+            border: 1px solid #e9ecef;
+            transition: all 0.3s ease;
+            width: 100%;
+        }
+        
+        .readme-link:hover {
+            background-color: #e9ecef;
+            transform: translateY(-2px);
+            box-shadow: 0 3px 6px rgba(0, 0, 0, 0.08);
+        }
+        
+        .readme-link a {
+            color: #E23C50; /* Красный цвет для ссылки */
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 0.85rem;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 6px;
+            width: 100%;
+        }
+        
+        .readme-link a:hover {
+            text-decoration: underline;
+            color: #d12a3e; /* Темнее при наведении */
+        }
+        
+        .readme-link a::before {
+            content: "📄";
+            font-size: 0.9rem;
+        }
+        
+        .footer {
+            margin-top: auto;
+            padding-top: 20px;
+            border-top: 1px solid #eee;
+        }
+        
+        .footer-text {
+            font-size: 0.9rem;
+            color: #7f8c8d;
+        }
+        
+        @media (max-width: 600px) {
+            .container {
+                padding: 30px 15px;
+                min-height: 80vh;
+                max-width: 95%;
+            }
+            
+            .main-title {
+                font-size: 2rem;
+            }
+            
+            .subtitle, .year {
+                font-size: 1.1rem;
+            }
+            
+            .subtitle {
+                margin-bottom: 2px;
+            }
+            
+            .group {
+                margin-bottom: 2px;
+            }
+            
+            .year {
+                margin-bottom: 25px;
+            }
+            
+            .buttons-container {
+                flex-direction: column;
+                align-items: center;
+                gap: 12px;
+                margin-top: 15px;
+            }
+            
+            .first-tasks-container {
+                width: 100%;
+                margin-bottom: 20px;
+            }
+            
+            .task3-container {
+                width: 100%;
+            }
+            
+            .readme-link-container {
+                margin-top: 6px;
+                max-width: 240px;
+            }
+            
+            .readme-link {
+                padding: 5px 10px;
+            }
+            
+            .readme-link a {
+                font-size: 0.8rem;
+                gap: 5px;
+            }
+            
+            .task-button {
+                width: 100%;
+                max-width: 240px;
+                padding: 14px 20px;
+            }
+        }
+        
+        @media (max-width: 400px) {
+            .main-title {
+                font-size: 1.8rem;
+            }
+            
+            .container {
+                padding: 20px 10px;
+            }
+            
+            .button-main-text {
+                font-size: 1rem;
+            }
+            
+            .button-sub-text {
+                font-size: 0.8rem;
+            }
+            
+            .readme-link {
+                padding: 4px 8px;
+            }
+            
+            .task-button {
+                max-width: 220px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header class="header">
+            <h1 class="main-title">ЗАДАНИЯ</h1>
+            <div class="title-line"></div>
+        </header>
+        
+        <main class="content">
+            <div class="personal-info">
+                <p class="subtitle name">Лебедева Екатерина</p>
+                <p class="subtitle group">4-мд-8</p>
+                <p class="year">2025</p>
+            </div>
+            
+            <div class="first-tasks-container">
+                <div class="buttons-container">
+                    <a href="https://lebedevaekaterina.github.io/portfolio/" class="task-button primary" target="_blank" rel="noopener">
+                        <span class="button-main-text">Задание 1</span>
+                        <span class="button-sub-text">Портфолио</span>
+                    </a>
+                    
+                    <a href="https://lebedevaekaterina.github.io/2/" class="task-button primary" target="_blank" rel="noopener">
+                        <span class="button-main-text">Задание 2</span>
+                        <span class="button-sub-text">Веб-приложение</span>
+                    </a>
+                    
+                    <!-- Контейнер для задания 3 и ссылки readme -->
+                    <div class="task3-container">
+                        <a href="https://lebedevaekaterina.github.io/game/" class="task-button primary" target="_blank" rel="noopener">
+                            <span class="button-main-text">Задание 3</span>
+                            <span class="button-sub-text">Игра</span>
+                        </a>
+                        
+                        <!-- Ссылка на readme под кнопкой задания 3 -->
+                        <div class="readme-link-container">
+                            <div class="readme-link">
+                                <a href="https://github.com/lebedevaekaterina/game/blob/main/readme.md" target="_blank" rel="noopener">
+                                    файл readme
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="buttons-container">
+                <a href="https://v0-site-five-sigma.vercel.app/" class="task-button special" target="_blank" rel="noopener">
+                    <span class="button-sub-text">Финальный проект</span>
+                </a>
+            </div>
+        </main>
+        
+        <footer class="footer">
+            <p class="footer-text">GitHub Pages | Лебедева Екатерина | 2025</p>
+        </footer>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const buttons = document.querySelectorAll('.task-button');
+            
+            buttons.forEach(button => {
+                button.addEventListener('click', function(e) {
+                    this.style.transform = 'scale(0.98)';
+                    setTimeout(() => {
+                        this.style.transform = '';
+                    }, 150);
+                    
+                    if (this.classList.contains('special')) {
+                        this.style.animation = 'pulse 0.5s';
+                        setTimeout(() => {
+                            this.style.animation = '';
+                        }, 500);
+                    }
+                });
+            });
+            
+            const style = document.createElement('style');
+            style.textContent = `
+                @keyframes pulse {
+                    0% { transform: scale(1); }
+                    50% { transform: scale(1.05); }
+                    100% { transform: scale(1); }
+                }
+            `;
+            document.head.appendChild(style);
+            
+            const readmeLink = document.querySelector('.readme-link');
+            if (readmeLink) {
+                readmeLink.addEventListener('mouseenter', function() {
+                    this.style.transform = 'translateY(-2px)';
+                });
+                
+                readmeLink.addEventListener('mouseleave', function() {
+                    this.style.transform = 'translateY(0)';
+                });
+            }
+        });
+    </script>
+</body>
+</html>
