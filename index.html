@@ -14,7 +14,7 @@
         }
         
         body {
-            background-color: #e9e9e9; /* Новый цвет фона страницы */
+            background-color: #e9e9e9;
             color: #333;
             min-height: 100vh;
             display: flex;
@@ -49,7 +49,7 @@
         
         .subtitle {
             font-size: 1.2rem;
-            color: #5a5a5a; /* Более темный серый для лучшей читаемости */
+            color: #5a5a5a;
             margin-bottom: 3px;
         }
         
@@ -65,7 +65,7 @@
         
         .year {
             font-size: 1.2rem;
-            color: #5a5a5a; /* Более темный серый */
+            color: #5a5a5a;
             margin-bottom: 30px;
             font-weight: 400;
         }
@@ -107,25 +107,23 @@
             transform: translateY(0);
         }
         
-        /* Первые три кнопки: E23C50 (красный) */
         .task-button.primary {
             background-color: #E23C50;
-            color: white; /* Белый текст на красном фоне */
-            border-color: rgba(255, 255, 255, 0.2); /* Светлая граница */
+            color: white;
+            border-color: rgba(255, 255, 255, 0.2);
         }
         
         .task-button.primary:hover {
-            background-color: #d12a3e; /* Темнее при наведении */
+            background-color: #d12a3e;
             color: white;
         }
         
-        /* Четвертая кнопка: 551001 (темно-бордовый) */
         .task-button.special {
             background-color: #551001;
-            border: 1px solid #440c01; /* Еще темнее граница */
+            border: 1px solid #440c01;
             box-shadow: 0 4px 6px rgba(85, 16, 1, 0.3);
             font-weight: 600;
-            color: white; /* Белый текст на темном фоне */
+            color: white;
         }
         
         .task-button.special:hover {
@@ -149,7 +147,7 @@
         .title-line {
             height: 2px;
             width: 60px;
-            background-color: #E23C50; /* Красный цвет для акцента */
+            background-color: #E23C50;
             margin: 20px auto 25px;
             border-radius: 2px;
         }
@@ -158,8 +156,8 @@
             margin-bottom: 25px;
         }
         
-        /* Контейнер для кнопки задания 3 и ссылки readme */
-        .task3-container {
+        /* Контейнер для кнопки задания и ссылки readme */
+        .task-container {
             display: flex;
             flex-direction: column;
             align-items: center;
@@ -189,7 +187,7 @@
         }
         
         .readme-link a {
-            color: #E23C50; /* Красный цвет для ссылки */
+            color: #E23C50;
             text-decoration: none;
             font-weight: 500;
             font-size: 0.85rem;
@@ -202,7 +200,7 @@
         
         .readme-link a:hover {
             text-decoration: underline;
-            color: #d12a3e; /* Темнее при наведении */
+            color: #d12a3e;
         }
         
         .readme-link a::before {
@@ -260,7 +258,7 @@
                 margin-bottom: 20px;
             }
             
-            .task3-container {
+            .task-container {
                 width: 100%;
             }
             
@@ -328,28 +326,49 @@
             
             <div class="first-tasks-container">
                 <div class="buttons-container">
-                    <a href="https://lebedevaekaterina.github.io/portfolio/" class="task-button primary" target="_blank" rel="noopener">
-                        <span class="button-main-text">Задание 1</span>
-                        <span class="button-sub-text">Портфолио</span>
-                    </a>
+                    <!-- Задание 1  -->
+                    <div class="task-container">
+                        <a href="https://lebedevaekaterina.github.io/portfolio/" class="task-button primary" target="_blank" rel="noopener">
+                            <span class="button-main-text">Задание 1</span>
+                            <span class="button-sub-text">Портфолио</span>
+                        </a>
+                        
+                        <div class="readme-link-container">
+                            <div class="readme-link">
+                                <a href="https://github.com/lebedevaekaterina/portfolio" target="_blank" rel="noopener">
+                                    репозиторий
+                                </a>
+                            </div>
+                        </div>
+                    </div>
                     
-                    <a href="https://lebedevaekaterina.github.io/2/" class="task-button primary" target="_blank" rel="noopener">
-                        <span class="button-main-text">Задание 2</span>
-                        <span class="button-sub-text">Веб-приложение</span>
-                    </a>
+                    <!-- Задание 2  -->
+                    <div class="task-container">
+                        <a href="https://lebedevaekaterina.github.io/2/" class="task-button primary" target="_blank" rel="noopener">
+                            <span class="button-main-text">Задание 2</span>
+                            <span class="button-sub-text">Веб-приложение</span>
+                        </a>
+                        
+                        <div class="readme-link-container">
+                            <div class="readme-link">
+                                <a href="https://github.com/lebedevaekaterina/2" target="_blank" rel="noopener">
+                                    репозиторий
+                                </a>
+                            </div>
+                        </div>
+                    </div>
                     
-                    <!-- Контейнер для задания 3 и ссылки readme -->
-                    <div class="task3-container">
+                    <!-- Задание 3  -->
+                    <div class="task-container">
                         <a href="https://lebedevaekaterina.github.io/game/" class="task-button primary" target="_blank" rel="noopener">
                             <span class="button-main-text">Задание 3</span>
                             <span class="button-sub-text">Игра</span>
                         </a>
                         
-                        <!-- Ссылка на readme под кнопкой задания 3 -->
                         <div class="readme-link-container">
                             <div class="readme-link">
                                 <a href="https://github.com/lebedevaekaterina/game/blob/main/readme.md" target="_blank" rel="noopener">
-                                    файл readme
+                                    репозиторий
                                 </a>
                             </div>
                         </div>
@@ -358,9 +377,20 @@
             </div>
             
             <div class="buttons-container">
-                <a href="https://v0-site-five-sigma.vercel.app/" class="task-button special" target="_blank" rel="noopener">
-                    <span class="button-sub-text">Финальный проект</span>
-                </a>
+                <!-- Финальный проект -->
+                <div class="task-container">
+                    <a href="https://lebedevaekaterina.github.io/4/" class="task-button special" target="_blank" rel="noopener">
+                        <span class="button-sub-text">Финальный проект</span>
+                    </a>
+                    
+                    <div class="readme-link-container">
+                        <div class="readme-link">
+                            <a href="https://github.com/lebedevaekaterina/4" target="_blank" rel="noopener">
+                                репозиторий
+                            </a>
+                        </div>
+                    </div>
+                </div>
             </div>
         </main>
         
@@ -399,8 +429,8 @@
             `;
             document.head.appendChild(style);
             
-            const readmeLink = document.querySelector('.readme-link');
-            if (readmeLink) {
+            const readmeLinks = document.querySelectorAll('.readme-link');
+            readmeLinks.forEach(readmeLink => {
                 readmeLink.addEventListener('mouseenter', function() {
                     this.style.transform = 'translateY(-2px)';
                 });
@@ -408,7 +438,7 @@
                 readmeLink.addEventListener('mouseleave', function() {
                     this.style.transform = 'translateY(0)';
                 });
-            }
+            });
         });
     </script>
 </body>
